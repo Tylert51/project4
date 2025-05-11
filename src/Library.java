@@ -17,30 +17,34 @@ public class Library {
         members.add(new Member(name));
     }
 
-    public Book searchBook(String search, int choice) {
+    public HashSet<Book> searchBook(String search, int choice) {
+
+        HashSet<Book> found = new HashSet<>();
 
         for(Book book : books) {
             switch (choice) {
                 case 1:     // searching title
                     if(book.getTitle().equals(search)) {
-                        return book;
+                        found.add(book);
                     }
                     break;
 
                 case 2:     // searching ISBN
                     if(book.getISBN().equals(search)) {
-                        return book;
+                        found.add(book);
                     }
                     break;
 
                 case 3:     // searching author
+
                     if(book.getAuthor().equals(search)) {
-                        return book;
+                        found.add(book);
                     }
+
                     break;
             }
         }
 
-        return null;
+        return found;
     }
 }

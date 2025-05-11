@@ -11,9 +11,6 @@ public class Book {
         this.copies = copies;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     public String getTitle() {
         return title;
@@ -30,6 +27,6 @@ public class Book {
 
     @Override
     public String toString() {
-        return title;
+        return title + " by " + author + " (ISBN: " + ISBN + "). Copies available for borrowing: " + copies;
     }
 }

@@ -8,10 +8,8 @@ public class Main {
 
 
         HashSet<Book> map = new HashSet<>();
-        System.out.println(map.add(book1));
-        System.out.println(map.add(book2));
-        System.out.println(map.add(book1));
-
         System.out.println(map);
+
+
     }
 }
