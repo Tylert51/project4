@@ -178,6 +178,7 @@ public class Main {
                         int idNum = Integer.parseInt(memID.substring(1));
                         if (memID.substring(0, 1).equals("m") && idNum <= library.getMembers().size()) {     // makes sure that member actually exists
 
+                            System.out.print("Enter book title to return: ");
                             String titleReturn = sc.nextLine();
                             ArrayList<Book> booksFound = library.searchBook(titleReturn, 1);
                             Member member = library.getMembers().get(idNum - 1);

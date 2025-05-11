@@ -22,8 +22,12 @@ public class Member {
     }
 
     public boolean borrowBook(Book borrowed) {
-        borrowedBooks.add(borrowed);
-        return borrowed.borrow();
+        if(borrowed.borrow()) {
+            borrowedBooks.add(borrowed);
+            return true;
+        }
+
+        return false;
     }
 
     public boolean returnBook(Book returned) {
