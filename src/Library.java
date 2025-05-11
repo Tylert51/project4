@@ -22,18 +22,22 @@ public class Library {
         return false;
     }
 
-    public void addMember(String name) {
-        members.add(new Member(name));
+    public Member addMember(String name) {
+        Member member = new Member(name);
+        members.add(member);
+
+        return member;
     }
 
     public ArrayList<Book> searchBook(String search, int choice) {
 
+        search = search.toLowerCase();
         ArrayList<Book> found = new ArrayList<>();
 
         for(Book book : books) {
             switch (choice) {
                 case 1:     // searching title
-                    if(book.getTitle().equals(search)) {
+                    if(book.getTitle().toLowerCase().equals(search)) {
                         found.add(book);
                     }
                     break;
@@ -46,7 +50,7 @@ public class Library {
 
                 case 3:     // searching author
 
-                    if(book.getAuthor().equals(search)) {
+                    if(book.getAuthor().toLowerCase().equals(search)) {
                         found.add(book);
                     }
 
@@ -55,5 +59,9 @@ public class Library {
         }
 
         return found;
+    }
+
+    public ArrayList<Member> getMembers() {
+        return members;
     }
 }

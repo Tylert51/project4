@@ -17,9 +17,25 @@ public class Member {
         id = "m" + numMembers;
     }
 
-
-
     public static int getNumMembers() {
         return numMembers;
+    }
+
+    public boolean borrowBook(Book borrowed) {
+        borrowedBooks.add(borrowed);
+        return borrowed.borrow();
+    }
+
+    public boolean returnBook(Book returned) {
+        borrowedBooks.remove(returned);
+        return returned.returnBook();
+    }
+
+    public ArrayList<Book> getBorrowedBooks() {
+        return borrowedBooks;
+    }
+
+    public String toString() {
+        return name + " (Member ID: " + id + ")";
     }
 }

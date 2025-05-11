@@ -32,6 +32,20 @@ public class Book {
         copies += c;
     }
 
+    public boolean borrow() {
+        if(copies > 0) {
+            copies--;
+            return true;
+        }
+
+        return false;
+    }
+
+    public boolean returnBook() {
+        copies++;
+        return true;
+    }
+
 
     @Override
     public String toString() {
