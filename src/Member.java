@@ -1,4 +1,4 @@
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class Member {
 
@@ -6,12 +6,12 @@ public class Member {
 
     private String name;
     private String id;
-    private HashSet<Book> borrowedBooks;
+    private ArrayList<Book> borrowedBooks;
 
 
     public Member(String name) {
         this.name = name;
-        borrowedBooks = new HashSet<>();
+        borrowedBooks = new ArrayList<>();
 
         numMembers++;
         id = "m" + numMembers;

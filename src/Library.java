@@ -1,25 +1,34 @@
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class Library {
-    private HashSet<Book> books;
-    private HashSet<Member> members;
+    private ArrayList<Book> books;
+    private ArrayList<Member> members;
 
     public Library() {
-        books = new HashSet<>();
-        members = new HashSet<>();
+        books = new ArrayList<>();
+        members = new ArrayList<>();
     }
 
-    public void addBook(String title, String author, String ISBN, int copies) {
-        books.add(new Book(title, author, ISBN, copies));
+    public boolean addBook(String title, String author, String ISBN, int copies) {
+
+        ArrayList<Book> found = searchBook(ISBN,2);
+
+        if(found.isEmpty()) {
+            books.add(new Book(title, author, ISBN, copies));
+            return true;
+        }
+
+        found.get(0).addCopies(copies);
+        return false;
     }
 
     public void addMember(String name) {
         members.add(new Member(name));
     }
 
-    public HashSet<Book> searchBook(String search, int choice) {
+    public ArrayList<Book> searchBook(String search, int choice) {
 
-        HashSet<Book> found = new HashSet<>();
+        ArrayList<Book> found = new ArrayList<>();
 
         for(Book book : books) {
             switch (choice) {

@@ -24,6 +24,14 @@ public class Book {
         return ISBN;
     }
 
+    public int getCopies() {
+        return copies;
+    }
+
+    public void addCopies(int c) {
+        copies += c;
+    }
+
 
     @Override
     public String toString() {
